@@ -4,7 +4,7 @@ import "./App.css";
 // Your WhatsApp Tool component (reused from before)
 const WhatsAppTool = () => {
   const [number, setNumber] = useState("");
-  const handleNumberChange = (e) => {
+  const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value.replace(/[^0-9]/g, "");
     setNumber(inputValue);
   };
@@ -84,7 +84,9 @@ const TextCounterTool = () => {
 
 // The main App component with state to manage which tool to show
 function App() {
-  const [activeTool, setActiveTool] = useState(null);
+  const [activeTool, setActiveTool] = useState<
+    "whatsapp" | "text-counter" | null
+  >(null);
 
   return (
     <div className="app-container">
